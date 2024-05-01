@@ -24,7 +24,7 @@ No CreateUser, quero salvar os dados com essas regras:
 
 [x] 3. fullName: com a primeira letra maiuscula, o resto é minuscula, precisa ter pelo menos 2 nomes
 
-email com letra minuscula, precisa ser um email valido.
+[x] 4. email com letra minuscula, precisa ser um email valido.
 
 birthday: precisa ser maior de idade >= 18 anos
 password, precisa ser maior que 6 caracteres, precisa ter pelo menos uma letra e um numero

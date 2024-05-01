@@ -11,7 +11,7 @@ describe("CreateUserUseCase", () => {
   it("Deve criar um usuario", async () => {
     const input = {
       fullName: "gabriel mendes",
-      email: "biel@gmail.com",
+      email: "BIEL@gmail.com",
       password: "123456B",
       birthday: "10022005",
     };
