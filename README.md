@@ -26,7 +26,9 @@ No CreateUser, quero salvar os dados com essas regras:
 
 [x] 4. email com letra minuscula, precisa ser um email valido.
 
-[x] . password, precisa ser maior que 6 caracteres, precisa ter pelo menos uma letra e um numero ex: password: '123g45' ou gabriel2'
+[x] 5. password, precisa ser maior que 6 caracteres, precisa ter pelo menos uma letra e um numero ex: password: '123g45' ou gabriel2'
+
+[x] 6. UpdateUser precisa dar regras do create pro cara não mandar dado invalido, como uma idade inferior
 
 birthday: precisa ser maior de idade >= 18 anos
 
@@ -37,6 +39,5 @@ firstName
 lastName
 fullName
 
-UpdateUser precisa dar regras do create pro cara não mandar dado invalido, como uma idade inferior
 
 

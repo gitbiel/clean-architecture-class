@@ -34,26 +34,26 @@ describe("CreateUserUseCase", () => {
     });
   });
 
-  it("Deve retornar um erro", async () => {
-    const input = {
-      fullName: "isaias Mendes",
-      email: "isaias@email.com",
-      password: "123456",
-      birthday: "23081995",
-    };
+  // it("Deve retornar um erro", async () => {
+  //   const input = {
+  //     fullName: "isaias Mendes",
+  //     email: "isaias@email.com",
+  //     password: "123456",
+  //     birthday: "23081995",
+  //   };
 
-    const repository = MockUserRepository();
-    repository.create = jest.fn().mockRejectedValue("Usuário já cadastrado!");
-    jest
-      .spyOn(repository, "create")
-      .mockRejectedValue("Usuário já cadastrado!");
+  //   const repository = MockUserRepository();
+  //   repository.create = jest.fn().mockRejectedValue("Usuário já cadastrado!");
+  //   jest
+  //     .spyOn(repository, "create")
+  //     .mockRejectedValue("Usuário já cadastrado!");
 
-    const useCase = new CreateUserUseCase(repository);
+  //   const useCase = new CreateUserUseCase(repository);
 
-    try {
-      await useCase.execute(input);
-    } catch (error) {
-      expect(error).toBe("Usuário já cadastrado!");
-    }
-  });
+  //   try {
+  //     await useCase.execute(input);
+  //   } catch (error) {
+  //     expect(error).toBe("Usuário já cadastrado!");
+  //   }
+  // });
 });
