@@ -18,6 +18,11 @@ export class CreateUserUseCase {
     return emailRegex.test(email);
   }
 
+  private isValidPassword(password: string): boolean {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    return passwordRegex.test(password);
+  }
+
   async execute(input: CreateUserInputDTO): Promise<CreateUserOutputDTO> {
     if (!this.hasTwoNames(input.fullName)) {
       throw new Error(
@@ -27,6 +32,12 @@ export class CreateUserUseCase {
 
     if (!this.isValidEmail(input.email)) {
       throw new Error("O e-mail fornecido não é válido");
+    }
+
+    if (!this.isValidPassword(input.password)) {
+      throw new Error(
+        "A senha deve ter mais de 6 caracteres e conter pelo menos uma letra e um número"
+      );
     }
 
     const formattedFullName = input.fullName
