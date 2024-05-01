@@ -12,8 +12,8 @@ describe("UpdateUserUseCase", () => {
     const user = {
       id: "1",
       fullName: "gabriel mendes",
-      email: "biel@email.com",
-      password: "123456",
+      email: "BIEL@email.com",
+      password: "123456A",
       birthday: "10022005",
     };
 
@@ -30,7 +30,7 @@ describe("UpdateUserUseCase", () => {
       id: expect.any(String),
       fullName: "Gabriel Mendes",
       email: "biel@email.com",
-      password: "123456",
+      password: "123456A",
       birthday: "10022005",
     });
   });
