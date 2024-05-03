@@ -1,4 +1,4 @@
-import { UserRepositoryInterface } from "../../repository/user/repository-interface";
+import { UserRepositoryInterface } from "../../../repository/user/repository-interface";
 import { UpdateUserInputDTO, UpdateUserOutputDTO } from "./update-user.dto";
 
 export class UpdateUserUseCase {
