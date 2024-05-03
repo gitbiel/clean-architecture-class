@@ -1,5 +1,5 @@
-import { UserRepositoryInterface } from "../../repository/user/repository-interface";
-import { UseCase } from "../usecase.interface";
+import { UserRepositoryInterface } from "../../../repository/user/repository-interface";
+import { UseCase } from "../../usecase.interface";
 import { ListUsersUseCaseOutputDTO } from "./list-user.usecase.dto";
 
 export class ListUsersUseCase
@@ -12,8 +12,13 @@ export class ListUsersUseCase
 
     return result.map((user) => ({
       id: user.id,
-      fullName: user.fullName,
-      // password: user.password.toString(),
+      fullName: user.fullName
+        ? user.fullName
+            .toLowerCase()
+            .split(" ")
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ")
+        : "",
       password: `${user.password}`,
       email: user.email,
       birthday: user.birthday,

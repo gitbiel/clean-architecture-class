@@ -10,6 +10,4 @@ class DeleteUseCaseExample implements UseCase<DeleteUseCaseInput, void> {
   }
 }
 
-
-
-
+console.log(new Date());

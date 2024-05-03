@@ -1,4 +1,5 @@
-import { UserRepositoryInterface } from "../../repository/user/repository-interface";
+import { UserRepositoryInterface } from "../../../repository/user/repository-interface";
+import { ERROR_MESSAGE } from "../error-message.enum";
 import {
   CreateUserInputDTO,
   CreateUserOutputDTO,
@@ -7,9 +8,16 @@ import {
 export class CreateUserUseCase {
   constructor(private readonly userRepository: UserRepositoryInterface) {}
 
-  private hasTwoNames(fullName: string): boolean {
+  private hasOnlyLetters(name: string): boolean {
+    return /^[a-zA-Z]+$/.test(name);
+  }
+
+  private hasSurname(fullName: string): boolean {
     const names = fullName.trim().split(/\s+/);
-    return names.length >= 2 && names.every((name) => name.length >= 3);
+    return (
+      names.length >= 2 &&
+      names.every((name) => name.length >= 3 && this.hasOnlyLetters(name))
+    );
   }
 
   private isValidEmail(email: string): boolean {
@@ -23,21 +31,33 @@ export class CreateUserUseCase {
     return passwordRegex.test(password);
   }
 
+  private isOver18(birthday: string): boolean {
+    const birthDate = new Date(birthday);
+    const currentDate = new Date();
+
+    // Calcula a diferença em milissegundos
+    const diffTime = currentDate.getTime() - birthDate.getTime();
+    // Calcula a diferença em anos
+    const diffYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
+
+    return diffYears >= 18;
+  }
+
   async execute(input: CreateUserInputDTO): Promise<CreateUserOutputDTO> {
-    if (!this.hasTwoNames(input.fullName)) {
-      throw new Error(
-        "O nome completo deve conter nome e sobrenome com 3 caracteres no mínimo"
-      );
+    if (!this.hasSurname(input.fullName)) {
+      throw new Error(ERROR_MESSAGE.INVALID_FULLNAME);
     }
 
     if (!this.isValidEmail(input.email)) {
-      throw new Error("O e-mail fornecido não é válido");
+      throw new Error(ERROR_MESSAGE.INVALID_EMAIL);
     }
 
     if (!this.isValidPassword(input.password)) {
-      throw new Error(
-        "A senha deve ter mais de 6 caracteres e conter pelo menos uma letra e um número"
-      );
+      throw new Error(ERROR_MESSAGE.INVALID_PASSWORD);
+    }
+
+    if (!this.isOver18(input.birthday)) {
+      throw new Error(ERROR_MESSAGE.INVALID_BIRTHDAY);
     }
 
     const formattedFullName = input.fullName

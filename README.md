@@ -30,13 +30,11 @@ No CreateUser, quero salvar os dados com essas regras:
 
 [x] 6. UpdateUser precisa dar regras do create pro cara não mandar dado invalido, como uma idade inferior
 
-birthday: precisa ser maior de idade >= 18 anos
+[x] birthday: precisa ser maior de idade >= 18 anos
 
-[] No List e find precisam
+[x] No List e find precisam
 devolver name com letra maiuscula
 devolva os campos (ambos nomes precisam da primeira letra maiuscula)
-firstName
-lastName
 fullName
 
 

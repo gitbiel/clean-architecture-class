@@ -1,7 +1,7 @@
 import {
   ListUserResponse,
   UserWithId,
-} from "../../repository/user/repository-interface";
+} from "../../../repository/user/repository-interface";
 import { ListUsersUseCase } from "./list-user.usecase";
 import { ListUsersUseCaseOutputDTO } from "./list-user.usecase.dto";
 
@@ -65,7 +65,7 @@ describe("List User UseCase", () => {
     const mockValue: UserWithId[] = [
       {
         id: "1",
-        fullName: "lucas souza",
+        fullName: "Lucas Souza",
         email: "lucas@gmail.com",
         password: "4567",
         birthday: "15022000",
@@ -86,13 +86,13 @@ describe("List User UseCase", () => {
 
     expect(userOutput.length).toEqual(2);
     expect(userOutput[0].id).toEqual("1");
-    expect(userOutput[0].fullName).toEqual("lucas souza");
+    expect(userOutput[0].fullName).toEqual("Lucas Souza");
     expect(userOutput[0].email).toEqual("lucas@gmail.com");
     expect(userOutput[0].password).toEqual("4567");
     expect(userOutput[0].birthday).toEqual("15022000");
 
     expect(userOutput[1].id).toEqual("2");
-    expect(userOutput[1].fullName).toEqual("luna");
+    expect(userOutput[1].fullName).toEqual("Luna");
     expect(userOutput[1].email).toEqual("luna@gmail.com");
     expect(userOutput[1].password).toEqual("7894");
     expect(userOutput[1].birthday).toEqual("21042002");
@@ -158,5 +158,25 @@ describe("List User UseCase", () => {
     expect(userOutput2.length).toEqual(4);
     expect(userRepository.list).toHaveBeenCalled();
     expect(userRepository.list).toHaveBeenCalledTimes(2);
+  });
+
+  it("Must return the full name with the first letter capitalized", async () => {
+    const userRepository = MockUserRepository();
+    const mockValue: UserWithId[] = [
+      {
+        id: "1",
+        fullName: "joão da silva",
+        email: "joao@gmail.com",
+        password: "1234",
+        birthday: "01011990",
+      },
+    ];
+    jest.spyOn(userRepository, "list").mockResolvedValue(mockValue);
+
+    const usecase = new ListUsersUseCase(userRepository);
+    const userOutput: ListUsersUseCaseOutputDTO = await usecase.execute();
+
+    expect(userOutput.length).toEqual(1);
+    expect(userOutput[0].fullName).toEqual("João Da Silva");
   });
 });

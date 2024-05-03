@@ -1,12 +1,12 @@
 import {
   FindUserResponse,
   UserWithId,
-} from "../../repository/user/repository-interface";
+} from "../../../repository/user/repository-interface";
 import { FindUserUseCase } from "./find-user.usecase";
 import { FindUserOutputDTO } from "./find-user.usecase.dto";
 
 const user: FindUserResponse = {
-  id: "123",
+  id: "1",
   fullName: "Biel",
   email: "biel@email.com",
   password: "123",
@@ -23,8 +23,7 @@ const MockUserRepository = () => ({
 });
 
 describe("FindUser UseCase", () => {
-  it.skip("Deve retornar um usuario", async () => {
-  });
+  it.skip("Deve retornar um usuario", async () => {});
 
   it("Deve retornar um usuario", async () => {
     const input = {
@@ -42,7 +41,7 @@ describe("FindUser UseCase", () => {
       fullName: user.fullName,
       email: user.email,
       password: user.password,
-      birthday: user.birthday
+      birthday: user.birthday,
     });
   });
 });
