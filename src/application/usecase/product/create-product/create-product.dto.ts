@@ -1,6 +1,9 @@
-const product = {
-  id: '23213',
-  name: 'ipad',
-  description: 'ipad pro 128gb',
-  price: 4500,
+export interface CreateproductInputDTO {
+  name: string;
+  description: string;
+  price: number;
+}
+
+export interface CreateproductOutputDTO {
+  id: string;
 }
