@@ -23,9 +23,9 @@ const MockUserRepository = () => ({
 });
 
 describe("FindUser UseCase", () => {
-  it.skip("Deve retornar um usuario", async () => {});
+  it.skip("should return a user", async () => {});
 
-  it("Deve retornar um usuario", async () => {
+  it("should return a user", async () => {
     const input = {
       id: "123",
     };
