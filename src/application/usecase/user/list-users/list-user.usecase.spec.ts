@@ -160,7 +160,7 @@ describe("List User UseCase", () => {
     expect(userRepository.list).toHaveBeenCalledTimes(2);
   });
 
-  it("Must return the full name with the first letter capitalized", async () => {
+  it("should return the full name with the first letter capitalized", async () => {
     const userRepository = MockUserRepository();
     const mockValue: UserWithId[] = [
       {

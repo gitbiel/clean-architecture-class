@@ -46,7 +46,7 @@ describe("CreateProductUsecase", () => {
     );
   });
 
-  it("deve retornar um erro caso o nome seja invalido ", async () => {
+  it("should return an error if the name is invalid", async () => {
     const input = {
       name: "      ",
       description: "ipad pro 128gb",
@@ -61,7 +61,7 @@ describe("CreateProductUsecase", () => {
       ERROR_MESSAGE.INVALID_NAME
     );
   });
-  it("deve retornar um erro caso o nome seja maior que 20 caracteres ", async () => {
+  it("should return an error if the name is longer than 20 characters", async () => {
     const input = {
       name: "Máquina de Lavar Roupas de Alta Capacidade",
       description: "8kg em perfeito estado",

@@ -9,7 +9,7 @@ const MockUserRepository = () => ({
 });
 
 describe("CreateUserUseCase", () => {
-  it("Deve criar um usuario valido", async () => {
+  it("You should create a valid user", async () => {
     const input = {
       fullName: "Gabriel Mendes",
       email: "BIEL@gmail.com",
@@ -35,7 +35,7 @@ describe("CreateUserUseCase", () => {
     });
   });
 
-  it("Deve retornar um erro caso sobrenome esteja faltando no fullName", async () => {
+  it("Should return an error if last name is missing from fullName", async () => {
     const input = {
       fullName: "gabriel",
       email: "BIEL@gmail.com",
@@ -52,7 +52,7 @@ describe("CreateUserUseCase", () => {
     );
   });
 
-  it("Deve retornar um erro se for um email inválido", async () => {
+  it("Should return an error if it is an invalid email", async () => {
     const input = {
       fullName: "gabriel mendes",
       email: "email@@dominio.com",
@@ -70,7 +70,7 @@ describe("CreateUserUseCase", () => {
     );
   });
 
-  it("Deve retornar um erro caso a senha esteja incorreta", async () => {
+  it("Should return an error if the password is incorrect", async () => {
     const input = {
       fullName: "gabriel mendes",
       email: "email@dominio.com",
@@ -87,7 +87,7 @@ describe("CreateUserUseCase", () => {
     );
   });
 
-  it("Deve retornar um erro caso o usuário não tenha 18 anos", async () => {
+  it("Should return an error if the user is not 18 years old", async () => {
     const input = {
       fullName: "gabriel mendes",
       email: "email@dominio.com",
