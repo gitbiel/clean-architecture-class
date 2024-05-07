@@ -1,7 +1,4 @@
-import {
-  FindUserResponse,
-  UserWithId,
-} from "../../../repository/user/repository-interface";
+import { FindUserResponse } from "../../../repository/user/repository-interface";
 import { FindUserUseCase } from "./find-user.usecase";
 import { FindUserOutputDTO } from "./find-user.usecase.dto";
 
@@ -27,7 +24,7 @@ describe("FindUser UseCase", () => {
 
   it("should return a user", async () => {
     const input = {
-      id: "123",
+      id: "1",
     };
 
     const repository = MockUserRepository();

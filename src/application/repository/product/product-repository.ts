@@ -4,6 +4,7 @@ import {
   ProductRepositoryInterface,
   ProductWithId,
 } from "./product-repository-interface";
+import { FindProductOutputDTO } from "../../usecase/product/find-product/find-product.usecase.dto";
 
 const products: ProductWithId[] = [];
 
@@ -17,5 +18,9 @@ export class ProductRepositoryMemory implements ProductRepositoryInterface {
       price: input.price,
     });
     return Promise.resolve({ id });
+  }
+
+  async find(input: { id: string }): Promise<FindProductOutputDTO> {
+    throw new Error("Method not implemented.");
   }
 }

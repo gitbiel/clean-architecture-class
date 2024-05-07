@@ -1,3 +1,5 @@
+import { FindProductOutputDTO } from "../../usecase/product/find-product/find-product.usecase.dto";
+
 export type Product = {
   name: string;
   description: string;
@@ -10,4 +12,5 @@ export interface ProductWithId extends Product {
 
 export interface ProductRepositoryInterface {
   create(input: Product): Promise<{ id: string }>;
+  find(input: { id: string }): Promise<FindProductOutputDTO>;
 }

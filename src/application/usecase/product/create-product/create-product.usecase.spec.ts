@@ -1,9 +1,9 @@
 import { ERROR_MESSAGE } from "../../user/error-message.enum";
 import { CreateProductUseCase } from "./create-product.usecase";
 
-const MockUserRepository = () => ({
-  find: jest.fn(),
+const MockProductRepository = () => ({
   create: jest.fn().mockResolvedValue({ id: "1" }),
+  find: jest.fn(),
   update: jest.fn(),
   list: jest.fn(),
 });
@@ -16,7 +16,7 @@ describe("CreateProductUsecase", () => {
       price: 4500,
     };
 
-    const repository = MockUserRepository();
+    const repository = MockProductRepository();
     jest.spyOn(repository, "create");
 
     const useCase = new CreateProductUseCase(repository);
@@ -37,7 +37,7 @@ describe("CreateProductUsecase", () => {
       price: 0,
     };
 
-    const repository = MockUserRepository();
+    const repository = MockProductRepository();
     jest.spyOn(repository, "create");
     const useCase = new CreateProductUseCase(repository);
 
@@ -53,7 +53,7 @@ describe("CreateProductUsecase", () => {
       price: 4500,
     };
 
-    const repository = MockUserRepository();
+    const repository = MockProductRepository();
     jest.spyOn(repository, "create");
     const useCase = new CreateProductUseCase(repository);
 
@@ -68,7 +68,7 @@ describe("CreateProductUsecase", () => {
       price: 5000,
     };
 
-    const repository = MockUserRepository();
+    const repository = MockProductRepository();
     jest.spyOn(repository, "create");
     const useCase = new CreateProductUseCase(repository);
 
