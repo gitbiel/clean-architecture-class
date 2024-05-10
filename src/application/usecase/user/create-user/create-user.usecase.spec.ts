@@ -18,7 +18,6 @@ describe("CreateUserUseCase", () => {
     };
 
     const repository = MockUserRepository();
-    jest.spyOn(repository, "create");
 
     const useCase = new CreateUserUseCase(repository);
 
@@ -44,7 +43,6 @@ describe("CreateUserUseCase", () => {
     };
 
     const repository = MockUserRepository();
-    jest.spyOn(repository, "create");
 
     const useCase = new CreateUserUseCase(repository);
     await expect(useCase.execute(input)).rejects.toThrow(
@@ -61,7 +59,6 @@ describe("CreateUserUseCase", () => {
     };
 
     const repository = MockUserRepository();
-    jest.spyOn(repository, "create");
 
     const useCase = new CreateUserUseCase(repository);
 
@@ -79,7 +76,6 @@ describe("CreateUserUseCase", () => {
     };
 
     const repository = MockUserRepository();
-    jest.spyOn(repository, "create");
     const useCase = new CreateUserUseCase(repository);
 
     await expect(useCase.execute(input)).rejects.toThrow(
@@ -96,7 +92,6 @@ describe("CreateUserUseCase", () => {
     };
 
     const repository = MockUserRepository();
-    jest.spyOn(repository, "create");
     const useCase = new CreateUserUseCase(repository);
 
     await expect(useCase.execute(input)).rejects.toThrow(

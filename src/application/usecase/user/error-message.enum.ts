@@ -5,5 +5,6 @@ export enum ERROR_MESSAGE {
   INVALID_BIRTHDAY = "A pessoa deve ter mais de 18 anos",
   INVALID_PRICE = "O preço precisa ser um número positivo válido",
   INVALID_NAME = "O nome do produto é inválido.",
-  INVALID_NAME_TOO_LONG = "O nome não deve ser tão grande"
+  INVALID_NAME_TOO_LONG = "O nome não deve ser tão grande",
+  PRODUCT_NOT_FOUND = "Produto não existe",
 }
