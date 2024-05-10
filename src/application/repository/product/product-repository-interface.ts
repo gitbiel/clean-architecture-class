@@ -13,4 +13,5 @@ export interface ProductWithId extends Product {
 export interface ProductRepositoryInterface {
   create(input: Product): Promise<{ id: string }>;
   find(input: { id: string }): Promise<FindProductOutputDTO>;
+  update(input: ProductWithId): Promise<void>;
 }

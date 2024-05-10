@@ -17,7 +17,6 @@ describe("CreateProductUsecase", () => {
     };
 
     const repository = MockProductRepository();
-    jest.spyOn(repository, "create");
 
     const useCase = new CreateProductUseCase(repository);
     const output = await useCase.execute(input);
@@ -38,7 +37,6 @@ describe("CreateProductUsecase", () => {
     };
 
     const repository = MockProductRepository();
-    jest.spyOn(repository, "create");
     const useCase = new CreateProductUseCase(repository);
 
     await expect(useCase.execute(input)).rejects.toThrow(
@@ -54,7 +52,6 @@ describe("CreateProductUsecase", () => {
     };
 
     const repository = MockProductRepository();
-    jest.spyOn(repository, "create");
     const useCase = new CreateProductUseCase(repository);
 
     await expect(useCase.execute(input)).rejects.toThrow(
@@ -69,7 +66,6 @@ describe("CreateProductUsecase", () => {
     };
 
     const repository = MockProductRepository();
-    jest.spyOn(repository, "create");
     const useCase = new CreateProductUseCase(repository);
 
     await expect(useCase.execute(input)).rejects.toThrow(

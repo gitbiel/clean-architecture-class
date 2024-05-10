@@ -2,13 +2,13 @@ import { UpdateUserUseCase } from "./update-user.usecase";
 
 const MockUserRepository = () => ({
   find: jest.fn(),
-  create: jest.fn().mockResolvedValue({ id: "1" }),
+  create: jest.fn(),
   update: jest.fn(),
   list: jest.fn(),
 });
 
 describe("UpdateUserUseCase", () => {
-  it("must update the user", async () => {
+  it("should update the user", async () => {
     const user = {
       id: "1",
       fullName: "gabriel mendes",

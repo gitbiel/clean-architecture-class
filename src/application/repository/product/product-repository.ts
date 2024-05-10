@@ -23,4 +23,8 @@ export class ProductRepositoryMemory implements ProductRepositoryInterface {
   async find(input: { id: string }): Promise<FindProductOutputDTO> {
     throw new Error("Method not implemented.");
   }
+
+  async update(input: ProductWithId): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
 }
