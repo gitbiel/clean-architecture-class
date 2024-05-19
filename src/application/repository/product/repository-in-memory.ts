@@ -3,7 +3,7 @@ import {
   Product,
   ProductRepositoryInterface,
   ProductWithId,
-} from "./product-repository-interface";
+} from "./repository-interface";
 import { FindProductOutputDTO } from "../../usecase/product/find-product/find-product.usecase.dto";
 
 const products: ProductWithId[] = [];

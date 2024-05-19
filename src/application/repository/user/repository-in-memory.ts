@@ -10,11 +10,25 @@ const users: UserWithId[] = [];
 
 export class UserRepositoryMemory implements UserRepositoryInterface {
   list(): Promise<UserWithId[]> {
-    throw new Error("Method not implemented.");
+    return Promise.resolve(users);
   }
+
   update(input: UserWithId): Promise<void> {
-    throw new Error("Method not implemented.");
+    const userIndex = users.findIndex((usr) => usr.id === input.id);
+    if (userIndex === -1) {
+      throw new Error("User not found");
+    }
+
+    users[userIndex] = {
+      ...users[userIndex],
+      fullName: input.fullName,
+      email: input.email,
+      birthday: input.birthday,
+    };
+
+    return Promise.resolve();
   }
+
   async create(input: User): Promise<{ id: string }> {
     const id = randomUUID();
     users.push({
@@ -38,8 +52,10 @@ export class UserRepositoryMemory implements UserRepositoryInterface {
       email: user.email,
       password: user.password,
       birthday: user.birthday,
-      address: "", 
+      address: "",
       cpf: "123.456.789-01",
     });
   }
 }
+
+
