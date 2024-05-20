@@ -9,12 +9,10 @@ input isaias 28, ...
 'deve atualzar o usuario do biel'
 input biel 19, ...
 
-
 [x] Criar um usecase para listar users
 [x] Criar um tests unitários para usecase de listar users
 
-
-------------------------------
+---
 
 No CreateUser, quero salvar os dados com essas regras:
 
@@ -37,5 +35,51 @@ devolver name com letra maiuscula
 devolva os campos (ambos nomes precisam da primeira letra maiuscula)
 fullName
 
+---
 
+Testes integrados dos use cases do user se integrando com o repository (in memory)
+
+- Criar um banco real como por exemplo o prisma em memory
+
+pesquise o que é teste de integração no youtube
+
+- Criar rotas chamando o controller de user, (deixar em memory)
+
+---
+
+- Criar um caso de uso (usecase) para category
+- Criar uma categoria com nome e retornar um id da categoria
+- deve retornar randomUIID
+
+Regras:
+
+- ao criar uma categoria, ela deve ser uma válida
+- Uma categoria deve ser única
+- Cadastrar produto (atualizar create product)
+
+---
+
+- Criar um list category
+
+Regras:
+
+- A saída deve ser um array de categorias
+
+---
+
+Regras: cadastrar produtos com essas informações
+name: string;
+description: string;
+price: number;
+categoryId: string;
+stock: number;
+
+
+Validar se a categoria do produto é válida
+
+---
+
+Criar um caso de uso de uma ordem de compra 
+que passa qual produto vc quer e quantos vc quer desse msm produto
+e o retorno seja o total a pagar do produto
 

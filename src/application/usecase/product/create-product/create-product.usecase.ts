@@ -1,4 +1,4 @@
-import { ProductRepositoryInterface } from "../../../repository/product/product-repository-interface";
+import { ProductRepositoryInterface } from "../../../repository/product/repository-interface";
 import { ERROR_MESSAGE } from "../../user/error-message.enum";
 import {
   CreateproductInputDTO,

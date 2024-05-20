@@ -14,6 +14,8 @@ describe("CreateProductUsecase", () => {
       name: "ipad",
       description: "ipad pro 128gb",
       price: 4500,
+      category: "Eletrônico",
+      stock: 100,
     };
 
     const repository = MockProductRepository();
@@ -34,6 +36,8 @@ describe("CreateProductUsecase", () => {
       name: "ipad",
       description: "ipad pro 128gb",
       price: 0,
+      category: "Eletrônico",
+      stock: 100,
     };
 
     const repository = MockProductRepository();
@@ -49,6 +53,8 @@ describe("CreateProductUsecase", () => {
       name: "      ",
       description: "ipad pro 128gb",
       price: 4500,
+      category: "Eletrônico",
+      stock: 100,
     };
 
     const repository = MockProductRepository();
@@ -62,7 +68,9 @@ describe("CreateProductUsecase", () => {
     const input = {
       name: "Máquina de Lavar Roupas de Alta Capacidade",
       description: "8kg em perfeito estado",
-      price: 5000,
+      price: 3200,
+      category: "Eletrodomésticos",
+      stock: 20,
     };
 
     const repository = MockProductRepository();
