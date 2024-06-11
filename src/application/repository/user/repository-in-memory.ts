@@ -6,21 +6,22 @@ import {
   UserWithId,
 } from "./repository-interface";
 
-const users: UserWithId[] = [];
 
 export class UserRepositoryMemory implements UserRepositoryInterface {
+  private users: UserWithId[] = [];
+
   list(): Promise<UserWithId[]> {
-    return Promise.resolve(users);
+    return Promise.resolve(this.users);
   }
 
   update(input: UserWithId): Promise<void> {
-    const userIndex = users.findIndex((usr) => usr.id === input.id);
+    const userIndex = this.users.findIndex((usr) => usr.id === input.id);
     if (userIndex === -1) {
       throw new Error("User not found");
     }
 
-    users[userIndex] = {
-      ...users[userIndex],
+    this.users[userIndex] = {
+      ...this.users[userIndex],
       fullName: input.fullName,
       email: input.email,
       birthday: input.birthday,
@@ -31,7 +32,7 @@ export class UserRepositoryMemory implements UserRepositoryInterface {
 
   async create(input: User): Promise<{ id: string }> {
     const id = randomUUID();
-    users.push({
+    this.users.push({
       id,
       fullName: input.fullName,
       email: input.email,
@@ -42,7 +43,7 @@ export class UserRepositoryMemory implements UserRepositoryInterface {
   }
 
   async find(input: { id: string }): Promise<FindUserResponse> {
-    const user = users.find((user) => user.id === input.id);
+    const user = this.users.find((user) => user.id === input.id);
     if (!user) {
       throw new Error("User not found");
     }

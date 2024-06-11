@@ -13,7 +13,7 @@ describe("ProductRepositoryMemory", () => {
     const { id } = await repository.create(category);
 
     expect(id).toBeDefined();
-    console.log("Isso é o console do category create => " + JSON.stringify(category));
+    // console.log("Isso é o console do category create => " + JSON.stringify(category));
   });
 
   it("should find a category by ID", async () => {
@@ -24,7 +24,7 @@ describe("ProductRepositoryMemory", () => {
 
     expect(foundCategory).toBeDefined();
     expect(foundCategory.name).toBe(category.name);
-    console.log("Isso é o console do found category => " + JSON.stringify(foundCategory));
+    // console.log("Isso é o console do found category => " + JSON.stringify(foundCategory));
   });
 
   it("deve listar todas as categorias", async () => {
@@ -43,6 +43,6 @@ describe("ProductRepositoryMemory", () => {
         expect.objectContaining({ name: "Category 2" }),
       ])
     );
-    console.log("Isso é o console do categories => " + JSON.stringify(categories));
+    // console.log("Isso é o console do categories => " + JSON.stringify(categories));
   });
 });

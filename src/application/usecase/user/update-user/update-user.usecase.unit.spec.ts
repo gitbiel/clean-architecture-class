@@ -9,7 +9,7 @@ const MockUserRepository = () => ({
 
 describe("UpdateUserUseCase", () => {
   it("should update the user", async () => {
-    const user = {
+    const inputUser = {
       id: "1",
       fullName: "gabriel mendes",
       email: "BIEL@email.com",
@@ -20,11 +20,11 @@ describe("UpdateUserUseCase", () => {
     const repository = MockUserRepository();
 
     const useCase = new UpdateUserUseCase(repository);
-    await useCase.execute(user);
+    await useCase.execute(inputUser);
 
-    expect(repository.update).toHaveBeenCalledWith(user);
+    expect(repository.update).toHaveBeenCalledWith(inputUser);
 
-    const output = await useCase.execute(user);
+    const output = await useCase.execute(inputUser);
 
     expect(output).toEqual({
       id: expect.any(String),

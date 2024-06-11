@@ -126,7 +126,7 @@ describe("List User UseCase", () => {
 
     expect(emptyUserOutput.length).toEqual(0);
   });
-
+  // fix it: validar esse test
   it("should return error", async () => {
     const userRepository = MockUserRepository();
 

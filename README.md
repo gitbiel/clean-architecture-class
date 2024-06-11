@@ -83,3 +83,20 @@ Criar um caso de uso de uma ordem de compra
 que passa qual produto vc quer e quantos vc quer desse msm produto
 e o retorno seja o total a pagar do produto
 
+---
+Criar fastify server 
+registrar rotas do usuario
+
+## --- Observações ---
+
+* Validações de request não atendidas possívelmente são bad request 400
+
+* Validar usuários com email já cadastrado
+
+* Update user não considera uma nova senha
+
+* Fazer testes de integração dos casos de uso e repository de user
+
+* Fazer testes de integração dos casos de uso e repository de product
+
+* Fazer testes de integração dos casos de uso e repository de category
